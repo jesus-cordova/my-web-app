@@ -1,0 +1,105 @@
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-auto-rows: 250px;
+  grid-gap: 10px;
+  max-width: 1100px;
+  padding: 10px;
+  margin: 0 auto;
+  grid-auto-flow: dense;
+}
+.tall {
+  grid-row: span 2;
+}
+.wide {
+  grid-column: span 2;
+}
+.big {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/**change this size ? */
+@media (max-width: 560px) {
+  .tall {
+    grid-row: span 1;
+  }
+  .wide {
+    grid-column: span 1;
+  }
+  .big {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+}
+
+.right {
+  opacity: 0;
+  transform: translate(-100px, 0);
+  transition: all 0.5s ease-out;
+  transition-delay: 0.1s;
+}
+.down {
+  opacity: 0;
+  transform: translate(0, -100px);
+  transition: all 0.5s ease-out;
+  transition-delay: 0.1s;
+}
+.left {
+  opacity: 0;
+  transform: translate(100px, 0);
+  transition: all 0.5s ease-out;
+  transition-delay: 0.1s;
+}
+.up {
+  opacity: 0;
+  transform: translate(0, 100px);
+  transition: all 0.5s ease-out;
+  transition-delay: 0.1s;
+}
+.move {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+.image {
+  width: inherit;
+  height: inherit;
+}
+
+.card {
+  perspective: 150rem;
+  position: relative;
+}
+.card .card-side {
+  transition: all 0.8s ease;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.card .card-side-back {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-style: italic;
+  color: white;
+  text-align: center;
+  transform: rotateY(180deg);
+  color: transparent;
+}
+.card:hover .card-side-front {
+  transform: rotateY(180deg);
+  filter: blur(5px);
+  transition-delay:1s;
+}
+.card:hover .card-side-back {
+  transform: rotateY(0deg);
+  color: white;
+  transition-delay:1s;
+}
